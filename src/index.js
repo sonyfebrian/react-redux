@@ -4,14 +4,22 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { fetchUsers } from './components/user/usersSlice'
+import store from "./store";
+import { Provider } from "react-redux";
+
+store.dispatch(fetchUsers());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
+  
+     <Provider store={store}>
+     <Router>
     <App />
     </Router>
+     </Provider>,
+    
   
-  </React.StrictMode>,
+ 
   document.getElementById('root')
 );
 

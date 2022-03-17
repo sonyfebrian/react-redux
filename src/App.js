@@ -1,14 +1,12 @@
 import './App.css';
 import React, { useEffect } from 'react';
-import {
-  Routes,
-  Route,
-  useLocation,
-} from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, useLocation } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
-import Tabel from './components/Transaksi';
 import Analytics from './components/Analytics';
 import User from './components/User';
+import { AddUser } from './components/user/AddUser';
+import { EditUser } from './components/user/EditUser';
+
 
 function App() {
   const location = useLocation();
@@ -20,15 +18,28 @@ function App() {
   }, [location.pathname]);
   return (
     <>
-
-    <Routes>
-        <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/table" element={<Tabel />} />
-        <Route exact path="/analytics" element={<Analytics />} />
-        <Route exact path="/user" element={<User />} />
-      </Routes>
- 
-     
+      <Router>
+      <div>
+        <Switch>
+        
+        <Route path="/analytics">
+            <Analytics />
+          </Route>
+        <Route path="/user">
+            <User />
+          </Route>
+          <Route path="/add-user">
+            <AddUser />
+          </Route>
+          <Route path="/edit-user">
+            <EditUser />
+          </Route>
+          <Route path="/">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
     </>
   );
 }

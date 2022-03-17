@@ -65,7 +65,7 @@ export default function UserMenu() {
           <div className="font-medium text-slate-800">User</div>
           <div className="text-xs text-slate-500 italic">Administrator</div>
         </div>
-        <ul>
+        <ul end="true">
           <li>
             <Link
               className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
